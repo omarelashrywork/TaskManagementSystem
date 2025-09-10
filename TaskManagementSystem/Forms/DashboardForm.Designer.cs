@@ -28,599 +28,617 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.panelMain = new System.Windows.Forms.Panel();
-            this.panelContent = new System.Windows.Forms.Panel();
-            this.panelTasks = new System.Windows.Forms.Panel();
-            this.dataGridViewTasks = new System.Windows.Forms.DataGridView();
-            this.panelPagination = new System.Windows.Forms.Panel();
-            this.lblPageInfo = new System.Windows.Forms.Label();
-            this.btnNextPage = new System.Windows.Forms.Button();
-            this.btnPrevPage = new System.Windows.Forms.Button();
-            this.panelFilters = new System.Windows.Forms.Panel();
-            this.groupBoxFilters = new System.Windows.Forms.GroupBox();
-            this.btnClearFilters = new System.Windows.Forms.Button();
-            this.btnApplyFilters = new System.Windows.Forms.Button();
-            this.cmbGroupBy = new System.Windows.Forms.ComboBox();
-            this.lblGroupBy = new System.Windows.Forms.Label();
-            this.cmbSortBy = new System.Windows.Forms.ComboBox();
-            this.lblSortBy = new System.Windows.Forms.Label();
-            this.cmbPriority = new System.Windows.Forms.ComboBox();
-            this.lblPriority = new System.Windows.Forms.Label();
-            this.cmbStatus = new System.Windows.Forms.ComboBox();
-            this.lblStatus = new System.Windows.Forms.Label();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.lblSearch = new System.Windows.Forms.Label();
-            this.panelSidebar = new System.Windows.Forms.Panel();
-            this.panelStatistics = new System.Windows.Forms.Panel();
-            this.groupBoxStats = new System.Windows.Forms.GroupBox();
-            this.lblAvgCompletionTime = new System.Windows.Forms.Label();
-            this.lblOverdueTasks = new System.Windows.Forms.Label();
-            this.lblCompletedTasks = new System.Windows.Forms.Label();
-            this.lblPendingTasks = new System.Windows.Forms.Label();
-            this.lblTotalTasks = new System.Windows.Forms.Label();
-            this.panelActions = new System.Windows.Forms.Panel();
-            this.groupBoxActions = new System.Windows.Forms.GroupBox();
-            this.btnGenerateReport = new System.Windows.Forms.Button();
-            this.btnDeleteTask = new System.Windows.Forms.Button();
-            this.btnEditTask = new System.Windows.Forms.Button();
-            this.btnAddTask = new System.Windows.Forms.Button();
-            this.panelHeader = new System.Windows.Forms.Panel();
-            this.btnLogout = new System.Windows.Forms.Button();
-            this.lblUserWelcome = new System.Windows.Forms.Label();
-            this.lblDashboardTitle = new System.Windows.Forms.Label();
-            this.timerRefresh = new System.Windows.Forms.Timer(this.components);
-            this.panelMain.SuspendLayout();
-            this.panelContent.SuspendLayout();
-            this.panelTasks.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTasks)).BeginInit();
-            this.panelPagination.SuspendLayout();
-            this.panelFilters.SuspendLayout();
-            this.groupBoxFilters.SuspendLayout();
-            this.panelSidebar.SuspendLayout();
-            this.panelStatistics.SuspendLayout();
-            this.groupBoxStats.SuspendLayout();
-            this.panelActions.SuspendLayout();
-            this.groupBoxActions.SuspendLayout();
-            this.panelHeader.SuspendLayout();
-            this.SuspendLayout();
+            components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            panelMain = new Panel();
+            panelContent = new Panel();
+            panelTasks = new Panel();
+            dataGridViewTasks = new DataGridView();
+            panelPagination = new Panel();
+            lblPageInfo = new Label();
+            btnNextPage = new Button();
+            btnPrevPage = new Button();
+            panelFilters = new Panel();
+            groupBoxFilters = new GroupBox();
+            btnClearFilters = new Button();
+            btnApplyFilters = new Button();
+            cmbGroupBy = new ComboBox();
+            lblGroupBy = new Label();
+            cmbSortBy = new ComboBox();
+            lblSortBy = new Label();
+            cmbPriority = new ComboBox();
+            lblPriority = new Label();
+            cmbStatus = new ComboBox();
+            lblStatus = new Label();
+            txtSearch = new TextBox();
+            lblSearch = new Label();
+            panelSidebar = new Panel();
+            panelStatistics = new Panel();
+            groupBoxStats = new GroupBox();
+            lblAvgCompletionTime = new Label();
+            lblOverdueTasks = new Label();
+            lblCompletedTasks = new Label();
+            lblPendingTasks = new Label();
+            lblTotalTasks = new Label();
+            panelActions = new Panel();
+            groupBoxActions = new GroupBox();
+            btnGenerateReport = new Button();
+            btnDeleteTask = new Button();
+            btnEditTask = new Button();
+            btnAddTask = new Button();
+            panelHeader = new Panel();
+            btnLogout = new Button();
+            lblUserWelcome = new Label();
+            lblDashboardTitle = new Label();
+            timerRefresh = new System.Windows.Forms.Timer(components);
+            panelMain.SuspendLayout();
+            panelContent.SuspendLayout();
+            panelTasks.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewTasks).BeginInit();
+            panelPagination.SuspendLayout();
+            panelFilters.SuspendLayout();
+            groupBoxFilters.SuspendLayout();
+            panelSidebar.SuspendLayout();
+            panelStatistics.SuspendLayout();
+            groupBoxStats.SuspendLayout();
+            panelActions.SuspendLayout();
+            groupBoxActions.SuspendLayout();
+            panelHeader.SuspendLayout();
+            SuspendLayout();
             // 
             // panelMain
             // 
-            this.panelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(250)))));
-            this.panelMain.Controls.Add(this.panelContent);
-            this.panelMain.Controls.Add(this.panelSidebar);
-            this.panelMain.Controls.Add(this.panelHeader);
-            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain.Location = new System.Drawing.Point(0, 0);
-            this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(1400, 800);
-            this.panelMain.TabIndex = 0;
+            panelMain.BackColor = Color.FromArgb(248, 249, 250);
+            panelMain.Controls.Add(panelContent);
+            panelMain.Controls.Add(panelSidebar);
+            panelMain.Controls.Add(panelHeader);
+            panelMain.Dock = DockStyle.Fill;
+            panelMain.Location = new Point(0, 0);
+            panelMain.Name = "panelMain";
+            panelMain.Size = new Size(1400, 800);
+            panelMain.TabIndex = 0;
             // 
             // panelContent
             // 
-            this.panelContent.BackColor = System.Drawing.Color.White;
-            this.panelContent.Controls.Add(this.panelTasks);
-            this.panelContent.Controls.Add(this.panelFilters);
-            this.panelContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContent.Location = new System.Drawing.Point(300, 80);
-            this.panelContent.Name = "panelContent";
-            this.panelContent.Padding = new System.Windows.Forms.Padding(20);
-            this.panelContent.Size = new System.Drawing.Size(1100, 720);
-            this.panelContent.TabIndex = 2;
+            panelContent.BackColor = Color.White;
+            panelContent.Controls.Add(panelTasks);
+            panelContent.Controls.Add(panelFilters);
+            panelContent.Dock = DockStyle.Fill;
+            panelContent.Location = new Point(300, 80);
+            panelContent.Name = "panelContent";
+            panelContent.Padding = new Padding(20);
+            panelContent.Size = new Size(1100, 720);
+            panelContent.TabIndex = 2;
             // 
             // panelTasks
             // 
-            this.panelTasks.Controls.Add(this.dataGridViewTasks);
-            this.panelTasks.Controls.Add(this.panelPagination);
-            this.panelTasks.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelTasks.Location = new System.Drawing.Point(20, 170);
-            this.panelTasks.Name = "panelTasks";
-            this.panelTasks.Size = new System.Drawing.Size(1060, 530);
-            this.panelTasks.TabIndex = 1;
+            panelTasks.Controls.Add(dataGridViewTasks);
+            panelTasks.Controls.Add(panelPagination);
+            panelTasks.Dock = DockStyle.Fill;
+            panelTasks.Location = new Point(20, 170);
+            panelTasks.Name = "panelTasks";
+            panelTasks.Size = new Size(1060, 530);
+            panelTasks.TabIndex = 1;
             // 
             // dataGridViewTasks
             // 
-            this.dataGridViewTasks.AllowUserToAddRows = false;
-            this.dataGridViewTasks.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridViewTasks.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridViewTasks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewTasks.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewTasks.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(221)))), ((int)(((byte)(222)))));
-            this.dataGridViewTasks.Location = new System.Drawing.Point(0, 0);
-            this.dataGridViewTasks.MultiSelect = false;
-            this.dataGridViewTasks.Name = "dataGridViewTasks";
-            this.dataGridViewTasks.ReadOnly = true;
-            this.dataGridViewTasks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewTasks.Size = new System.Drawing.Size(1060, 480);
-            this.dataGridViewTasks.TabIndex = 0;
-            this.dataGridViewTasks.SelectionChanged += new System.EventHandler(this.dataGridViewTasks_SelectionChanged);
-            this.dataGridViewTasks.DoubleClick += new System.EventHandler(this.dataGridViewTasks_DoubleClick);
+            dataGridViewTasks.AllowUserToAddRows = false;
+            dataGridViewTasks.BackgroundColor = Color.White;
+            dataGridViewTasks.BorderStyle = BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridViewTasks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewTasks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridViewTasks.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewTasks.Dock = DockStyle.Fill;
+            dataGridViewTasks.GridColor = Color.FromArgb(220, 221, 222);
+            dataGridViewTasks.Location = new Point(0, 0);
+            dataGridViewTasks.MultiSelect = false;
+            dataGridViewTasks.Name = "dataGridViewTasks";
+            dataGridViewTasks.ReadOnly = true;
+            dataGridViewTasks.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewTasks.Size = new Size(1060, 480);
+            dataGridViewTasks.TabIndex = 0;
+            dataGridViewTasks.SelectionChanged += dataGridViewTasks_SelectionChanged;
+            dataGridViewTasks.DoubleClick += dataGridViewTasks_DoubleClick;
             // 
             // panelPagination
             // 
-            this.panelPagination.Controls.Add(this.lblPageInfo);
-            this.panelPagination.Controls.Add(this.btnNextPage);
-            this.panelPagination.Controls.Add(this.btnPrevPage);
-            this.panelPagination.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelPagination.Location = new System.Drawing.Point(0, 480);
-            this.panelPagination.Name = "panelPagination";
-            this.panelPagination.Size = new System.Drawing.Size(1060, 50);
-            this.panelPagination.TabIndex = 1;
+            panelPagination.Controls.Add(lblPageInfo);
+            panelPagination.Controls.Add(btnNextPage);
+            panelPagination.Controls.Add(btnPrevPage);
+            panelPagination.Dock = DockStyle.Bottom;
+            panelPagination.Location = new Point(0, 480);
+            panelPagination.Name = "panelPagination";
+            panelPagination.Size = new Size(1060, 50);
+            panelPagination.TabIndex = 1;
             // 
             // lblPageInfo
             // 
-            this.lblPageInfo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblPageInfo.AutoSize = true;
-            this.lblPageInfo.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lblPageInfo.Location = new System.Drawing.Point(480, 15);
-            this.lblPageInfo.Name = "lblPageInfo";
-            this.lblPageInfo.Size = new System.Drawing.Size(85, 19);
-            this.lblPageInfo.TabIndex = 2;
-            this.lblPageInfo.Text = "Page 1 of 10";
+            lblPageInfo.Anchor = AnchorStyles.None;
+            lblPageInfo.AutoSize = true;
+            lblPageInfo.Font = new Font("Segoe UI", 10F);
+            lblPageInfo.Location = new Point(480, 15);
+            lblPageInfo.Name = "lblPageInfo";
+            lblPageInfo.Size = new Size(87, 19);
+            lblPageInfo.TabIndex = 2;
+            lblPageInfo.Text = "Page 1 of 10";
             // 
             // btnNextPage
             // 
-            this.btnNextPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNextPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.btnNextPage.FlatAppearance.BorderSize = 0;
-            this.btnNextPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNextPage.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btnNextPage.ForeColor = System.Drawing.Color.White;
-            this.btnNextPage.Location = new System.Drawing.Point(960, 10);
-            this.btnNextPage.Name = "btnNextPage";
-            this.btnNextPage.Size = new System.Drawing.Size(80, 30);
-            this.btnNextPage.TabIndex = 1;
-            this.btnNextPage.Text = "Next";
-            this.btnNextPage.UseVisualStyleBackColor = false;
-            this.btnNextPage.Click += new System.EventHandler(this.btnNextPage_Click);
+            btnNextPage.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnNextPage.BackColor = Color.FromArgb(52, 152, 219);
+            btnNextPage.FlatAppearance.BorderSize = 0;
+            btnNextPage.FlatStyle = FlatStyle.Flat;
+            btnNextPage.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnNextPage.ForeColor = Color.White;
+            btnNextPage.Location = new Point(960, 10);
+            btnNextPage.Name = "btnNextPage";
+            btnNextPage.Size = new Size(80, 30);
+            btnNextPage.TabIndex = 1;
+            btnNextPage.Text = "Next";
+            btnNextPage.UseVisualStyleBackColor = false;
+            btnNextPage.Click += btnNextPage_Click;
             // 
             // btnPrevPage
             // 
-            this.btnPrevPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.btnPrevPage.FlatAppearance.BorderSize = 0;
-            this.btnPrevPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrevPage.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btnPrevPage.ForeColor = System.Drawing.Color.White;
-            this.btnPrevPage.Location = new System.Drawing.Point(20, 10);
-            this.btnPrevPage.Name = "btnPrevPage";
-            this.btnPrevPage.Size = new System.Drawing.Size(80, 30);
-            this.btnPrevPage.TabIndex = 0;
-            this.btnPrevPage.Text = "Previous";
-            this.btnPrevPage.UseVisualStyleBackColor = false;
-            this.btnPrevPage.Click += new System.EventHandler(this.btnPrevPage_Click);
+            btnPrevPage.BackColor = Color.FromArgb(52, 152, 219);
+            btnPrevPage.FlatAppearance.BorderSize = 0;
+            btnPrevPage.FlatStyle = FlatStyle.Flat;
+            btnPrevPage.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnPrevPage.ForeColor = Color.White;
+            btnPrevPage.Location = new Point(20, 10);
+            btnPrevPage.Name = "btnPrevPage";
+            btnPrevPage.Size = new Size(80, 30);
+            btnPrevPage.TabIndex = 0;
+            btnPrevPage.Text = "Previous";
+            btnPrevPage.UseVisualStyleBackColor = false;
+            btnPrevPage.Click += btnPrevPage_Click;
             // 
             // panelFilters
             // 
-            this.panelFilters.Controls.Add(this.groupBoxFilters);
-            this.panelFilters.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelFilters.Location = new System.Drawing.Point(20, 20);
-            this.panelFilters.Name = "panelFilters";
-            this.panelFilters.Size = new System.Drawing.Size(1060, 150);
-            this.panelFilters.TabIndex = 0;
+            panelFilters.Controls.Add(groupBoxFilters);
+            panelFilters.Dock = DockStyle.Top;
+            panelFilters.Location = new Point(20, 20);
+            panelFilters.Name = "panelFilters";
+            panelFilters.Size = new Size(1060, 150);
+            panelFilters.TabIndex = 0;
             // 
             // groupBoxFilters
             // 
-            this.groupBoxFilters.Controls.Add(this.btnClearFilters);
-            this.groupBoxFilters.Controls.Add(this.btnApplyFilters);
-            this.groupBoxFilters.Controls.Add(this.cmbGroupBy);
-            this.groupBoxFilters.Controls.Add(this.lblGroupBy);
-            this.groupBoxFilters.Controls.Add(this.cmbSortBy);
-            this.groupBoxFilters.Controls.Add(this.lblSortBy);
-            this.groupBoxFilters.Controls.Add(this.cmbPriority);
-            this.groupBoxFilters.Controls.Add(this.lblPriority);
-            this.groupBoxFilters.Controls.Add(this.cmbStatus);
-            this.groupBoxFilters.Controls.Add(this.lblStatus);
-            this.groupBoxFilters.Controls.Add(this.txtSearch);
-            this.groupBoxFilters.Controls.Add(this.lblSearch);
-            this.groupBoxFilters.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBoxFilters.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.groupBoxFilters.Location = new System.Drawing.Point(0, 0);
-            this.groupBoxFilters.Name = "groupBoxFilters";
-            this.groupBoxFilters.Size = new System.Drawing.Size(1060, 150);
-            this.groupBoxFilters.TabIndex = 0;
-            this.groupBoxFilters.TabStop = false;
-            this.groupBoxFilters.Text = "Filters & Search";
+            groupBoxFilters.Controls.Add(btnClearFilters);
+            groupBoxFilters.Controls.Add(btnApplyFilters);
+            groupBoxFilters.Controls.Add(cmbGroupBy);
+            groupBoxFilters.Controls.Add(lblGroupBy);
+            groupBoxFilters.Controls.Add(cmbSortBy);
+            groupBoxFilters.Controls.Add(lblSortBy);
+            groupBoxFilters.Controls.Add(cmbPriority);
+            groupBoxFilters.Controls.Add(lblPriority);
+            groupBoxFilters.Controls.Add(cmbStatus);
+            groupBoxFilters.Controls.Add(lblStatus);
+            groupBoxFilters.Controls.Add(txtSearch);
+            groupBoxFilters.Controls.Add(lblSearch);
+            groupBoxFilters.Dock = DockStyle.Fill;
+            groupBoxFilters.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            groupBoxFilters.Location = new Point(0, 0);
+            groupBoxFilters.Name = "groupBoxFilters";
+            groupBoxFilters.Size = new Size(1060, 150);
+            groupBoxFilters.TabIndex = 0;
+            groupBoxFilters.TabStop = false;
+            groupBoxFilters.Text = "Filters & Search";
             // 
             // btnClearFilters
             // 
-            this.btnClearFilters.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
-            this.btnClearFilters.FlatAppearance.BorderSize = 0;
-            this.btnClearFilters.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClearFilters.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btnClearFilters.ForeColor = System.Drawing.Color.White;
-            this.btnClearFilters.Location = new System.Drawing.Point(950, 100);
-            this.btnClearFilters.Name = "btnClearFilters";
-            this.btnClearFilters.Size = new System.Drawing.Size(100, 35);
-            this.btnClearFilters.TabIndex = 11;
-            this.btnClearFilters.Text = "Clear";
-            this.btnClearFilters.UseVisualStyleBackColor = false;
-            this.btnClearFilters.Click += new System.EventHandler(this.btnClearFilters_Click);
+            btnClearFilters.BackColor = Color.FromArgb(231, 76, 60);
+            btnClearFilters.FlatAppearance.BorderSize = 0;
+            btnClearFilters.FlatStyle = FlatStyle.Flat;
+            btnClearFilters.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnClearFilters.ForeColor = Color.White;
+            btnClearFilters.Location = new Point(950, 100);
+            btnClearFilters.Name = "btnClearFilters";
+            btnClearFilters.Size = new Size(100, 35);
+            btnClearFilters.TabIndex = 11;
+            btnClearFilters.Text = "Clear";
+            btnClearFilters.UseVisualStyleBackColor = false;
+            btnClearFilters.Click += btnClearFilters_Click;
             // 
             // btnApplyFilters
             // 
-            this.btnApplyFilters.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
-            this.btnApplyFilters.FlatAppearance.BorderSize = 0;
-            this.btnApplyFilters.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnApplyFilters.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btnApplyFilters.ForeColor = System.Drawing.Color.White;
-            this.btnApplyFilters.Location = new System.Drawing.Point(830, 100);
-            this.btnApplyFilters.Name = "btnApplyFilters";
-            this.btnApplyFilters.Size = new System.Drawing.Size(100, 35);
-            this.btnApplyFilters.TabIndex = 10;
-            this.btnApplyFilters.Text = "Apply";
-            this.btnApplyFilters.UseVisualStyleBackColor = false;
-            this.btnApplyFilters.Click += new System.EventHandler(this.btnApplyFilters_Click);
+            btnApplyFilters.BackColor = Color.FromArgb(39, 174, 96);
+            btnApplyFilters.FlatAppearance.BorderSize = 0;
+            btnApplyFilters.FlatStyle = FlatStyle.Flat;
+            btnApplyFilters.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnApplyFilters.ForeColor = Color.White;
+            btnApplyFilters.Location = new Point(830, 100);
+            btnApplyFilters.Name = "btnApplyFilters";
+            btnApplyFilters.Size = new Size(100, 35);
+            btnApplyFilters.TabIndex = 10;
+            btnApplyFilters.Text = "Apply";
+            btnApplyFilters.UseVisualStyleBackColor = false;
+            btnApplyFilters.Click += btnApplyFilters_Click;
             // 
             // cmbGroupBy
             // 
-            this.cmbGroupBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbGroupBy.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cmbGroupBy.FormattingEnabled = true;
-            this.cmbGroupBy.Location = new System.Drawing.Point(650, 70);
-            this.cmbGroupBy.Name = "cmbGroupBy";
-            this.cmbGroupBy.Size = new System.Drawing.Size(150, 23);
-            this.cmbGroupBy.TabIndex = 9;
+            cmbGroupBy.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbGroupBy.Font = new Font("Segoe UI", 9F);
+            cmbGroupBy.FormattingEnabled = true;
+            cmbGroupBy.Location = new Point(650, 107);
+            cmbGroupBy.Name = "cmbGroupBy";
+            cmbGroupBy.Size = new Size(150, 23);
+            cmbGroupBy.TabIndex = 9;
             // 
             // lblGroupBy
             // 
-            this.lblGroupBy.AutoSize = true;
-            this.lblGroupBy.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblGroupBy.Location = new System.Drawing.Point(650, 50);
-            this.lblGroupBy.Name = "lblGroupBy";
-            this.lblGroupBy.Size = new System.Drawing.Size(60, 15);
-            this.lblGroupBy.TabIndex = 8;
-            this.lblGroupBy.Text = "Group By:";
+            lblGroupBy.AutoSize = true;
+            lblGroupBy.Font = new Font("Segoe UI", 9F);
+            lblGroupBy.Location = new Point(650, 81);
+            lblGroupBy.Name = "lblGroupBy";
+            lblGroupBy.Size = new Size(59, 15);
+            lblGroupBy.TabIndex = 8;
+            lblGroupBy.Text = "Group By:";
             // 
             // cmbSortBy
             // 
-            this.cmbSortBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbSortBy.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cmbSortBy.FormattingEnabled = true;
-            this.cmbSortBy.Location = new System.Drawing.Point(480, 70);
-            this.cmbSortBy.Name = "cmbSortBy";
-            this.cmbSortBy.Size = new System.Drawing.Size(150, 23);
-            this.cmbSortBy.TabIndex = 7;
+            cmbSortBy.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbSortBy.Font = new Font("Segoe UI", 9F);
+            cmbSortBy.FormattingEnabled = true;
+            cmbSortBy.Location = new Point(480, 107);
+            cmbSortBy.Name = "cmbSortBy";
+            cmbSortBy.Size = new Size(150, 23);
+            cmbSortBy.TabIndex = 7;
             // 
             // lblSortBy
             // 
-            this.lblSortBy.AutoSize = true;
-            this.lblSortBy.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblSortBy.Location = new System.Drawing.Point(480, 50);
-            this.lblSortBy.Name = "lblSortBy";
-            this.lblSortBy.Size = new System.Drawing.Size(50, 15);
-            this.lblSortBy.TabIndex = 6;
-            this.lblSortBy.Text = "Sort By:";
+            lblSortBy.AutoSize = true;
+            lblSortBy.Font = new Font("Segoe UI", 9F);
+            lblSortBy.Location = new Point(480, 81);
+            lblSortBy.Name = "lblSortBy";
+            lblSortBy.Size = new Size(47, 15);
+            lblSortBy.TabIndex = 6;
+            lblSortBy.Text = "Sort By:";
             // 
             // cmbPriority
             // 
-            this.cmbPriority.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbPriority.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cmbPriority.FormattingEnabled = true;
-            this.cmbPriority.Location = new System.Drawing.Point(310, 70);
-            this.cmbPriority.Name = "cmbPriority";
-            this.cmbPriority.Size = new System.Drawing.Size(150, 23);
-            this.cmbPriority.TabIndex = 5;
+            cmbPriority.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbPriority.Font = new Font("Segoe UI", 9F);
+            cmbPriority.FormattingEnabled = true;
+            cmbPriority.Location = new Point(310, 107);
+            cmbPriority.Name = "cmbPriority";
+            cmbPriority.Size = new Size(150, 23);
+            cmbPriority.TabIndex = 5;
             // 
             // lblPriority
             // 
-            this.lblPriority.AutoSize = true;
-            this.lblPriority.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblPriority.Location = new System.Drawing.Point(310, 50);
-            this.lblPriority.Name = "lblPriority";
-            this.lblPriority.Size = new System.Drawing.Size(48, 15);
-            this.lblPriority.TabIndex = 4;
-            this.lblPriority.Text = "Priority:";
+            lblPriority.AutoSize = true;
+            lblPriority.Font = new Font("Segoe UI", 9F);
+            lblPriority.Location = new Point(310, 81);
+            lblPriority.Name = "lblPriority";
+            lblPriority.Size = new Size(48, 15);
+            lblPriority.TabIndex = 4;
+            lblPriority.Text = "Priority:";
             // 
             // cmbStatus
             // 
-            this.cmbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbStatus.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cmbStatus.FormattingEnabled = true;
-            this.cmbStatus.Location = new System.Drawing.Point(140, 70);
-            this.cmbStatus.Name = "cmbStatus";
-            this.cmbStatus.Size = new System.Drawing.Size(150, 23);
-            this.cmbStatus.TabIndex = 3;
+            cmbStatus.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbStatus.Font = new Font("Segoe UI", 9F);
+            cmbStatus.FormattingEnabled = true;
+            cmbStatus.Location = new Point(140, 107);
+            cmbStatus.Name = "cmbStatus";
+            cmbStatus.Size = new Size(150, 23);
+            cmbStatus.TabIndex = 3;
             // 
             // lblStatus
             // 
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblStatus.Location = new System.Drawing.Point(140, 50);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(42, 15);
-            this.lblStatus.TabIndex = 2;
-            this.lblStatus.Text = "Status:";
+            lblStatus.AutoSize = true;
+            lblStatus.Font = new Font("Segoe UI", 9F);
+            lblStatus.Location = new Point(140, 81);
+            lblStatus.Name = "lblStatus";
+            lblStatus.Size = new Size(42, 15);
+            lblStatus.TabIndex = 2;
+            lblStatus.Text = "Status:";
             // 
             // txtSearch
             // 
-            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.txtSearch.Location = new System.Drawing.Point(20, 40);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.PlaceholderText = "Search tasks by title or description...";
-            this.txtSearch.Size = new System.Drawing.Size(400, 27);
-            this.txtSearch.TabIndex = 1;
-            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            txtSearch.Font = new Font("Segoe UI", 11F);
+            txtSearch.Location = new Point(20, 40);
+            txtSearch.Name = "txtSearch";
+            txtSearch.PlaceholderText = "Search tasks by title or description...";
+            txtSearch.Size = new Size(400, 27);
+            txtSearch.TabIndex = 1;
+            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // lblSearch
             // 
-            this.lblSearch.AutoSize = true;
-            this.lblSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblSearch.Location = new System.Drawing.Point(20, 22);
-            this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(45, 15);
-            this.lblSearch.TabIndex = 0;
-            this.lblSearch.Text = "Search:";
+            lblSearch.AutoSize = true;
+            lblSearch.Font = new Font("Segoe UI", 9F);
+            lblSearch.Location = new Point(20, 22);
+            lblSearch.Name = "lblSearch";
+            lblSearch.Size = new Size(45, 15);
+            lblSearch.TabIndex = 0;
+            lblSearch.Text = "Search:";
             // 
             // panelSidebar
             // 
-            this.panelSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.panelSidebar.Controls.Add(this.panelStatistics);
-            this.panelSidebar.Controls.Add(this.panelActions);
-            this.panelSidebar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelSidebar.Location = new System.Drawing.Point(0, 80);
-            this.panelSidebar.Name = "panelSidebar";
-            this.panelSidebar.Padding = new System.Windows.Forms.Padding(20);
-            this.panelSidebar.Size = new System.Drawing.Size(300, 720);
-            this.panelSidebar.TabIndex = 1;
+            panelSidebar.BackColor = Color.FromArgb(52, 73, 94);
+            panelSidebar.Controls.Add(panelStatistics);
+            panelSidebar.Controls.Add(panelActions);
+            panelSidebar.Dock = DockStyle.Left;
+            panelSidebar.Location = new Point(0, 80);
+            panelSidebar.Name = "panelSidebar";
+            panelSidebar.Padding = new Padding(20);
+            panelSidebar.Size = new Size(300, 720);
+            panelSidebar.TabIndex = 1;
             // 
             // panelStatistics
             // 
-            this.panelStatistics.Controls.Add(this.groupBoxStats);
-            this.panelStatistics.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelStatistics.Location = new System.Drawing.Point(20, 220);
-            this.panelStatistics.Name = "panelStatistics";
-            this.panelStatistics.Size = new System.Drawing.Size(260, 480);
-            this.panelStatistics.TabIndex = 1;
+            panelStatistics.Controls.Add(groupBoxStats);
+            panelStatistics.Dock = DockStyle.Fill;
+            panelStatistics.Location = new Point(20, 220);
+            panelStatistics.Name = "panelStatistics";
+            panelStatistics.Size = new Size(260, 480);
+            panelStatistics.TabIndex = 1;
             // 
             // groupBoxStats
             // 
-            this.groupBoxStats.Controls.Add(this.lblAvgCompletionTime);
-            this.groupBoxStats.Controls.Add(this.lblOverdueTasks);
-            this.groupBoxStats.Controls.Add(this.lblCompletedTasks);
-            this.groupBoxStats.Controls.Add(this.lblPendingTasks);
-            this.groupBoxStats.Controls.Add(this.lblTotalTasks);
-            this.groupBoxStats.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBoxStats.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.groupBoxStats.ForeColor = System.Drawing.Color.White;
-            this.groupBoxStats.Location = new System.Drawing.Point(0, 0);
-            this.groupBoxStats.Name = "groupBoxStats";
-            this.groupBoxStats.Size = new System.Drawing.Size(260, 480);
-            this.groupBoxStats.TabIndex = 0;
-            this.groupBoxStats.TabStop = false;
-            this.groupBoxStats.Text = "Statistics";
+            groupBoxStats.Controls.Add(lblAvgCompletionTime);
+            groupBoxStats.Controls.Add(lblOverdueTasks);
+            groupBoxStats.Controls.Add(lblCompletedTasks);
+            groupBoxStats.Controls.Add(lblPendingTasks);
+            groupBoxStats.Controls.Add(lblTotalTasks);
+            groupBoxStats.Dock = DockStyle.Fill;
+            groupBoxStats.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            groupBoxStats.ForeColor = Color.White;
+            groupBoxStats.Location = new Point(0, 0);
+            groupBoxStats.Name = "groupBoxStats";
+            groupBoxStats.Size = new Size(260, 480);
+            groupBoxStats.TabIndex = 0;
+            groupBoxStats.TabStop = false;
+            groupBoxStats.Text = "Statistics";
             // 
             // lblAvgCompletionTime
             // 
-            this.lblAvgCompletionTime.AutoSize = true;
-            this.lblAvgCompletionTime.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lblAvgCompletionTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-            this.lblAvgCompletionTime.Location = new System.Drawing.Point(20, 150);
-            this.lblAvgCompletionTime.Name = "lblAvgCompletionTime";
-            this.lblAvgCompletionTime.Size = new System.Drawing.Size(153, 19);
-            this.lblAvgCompletionTime.TabIndex = 4;
-            this.lblAvgCompletionTime.Text = "Avg Completion: 0 days";
+            lblAvgCompletionTime.AutoSize = true;
+            lblAvgCompletionTime.Font = new Font("Segoe UI", 10F);
+            lblAvgCompletionTime.ForeColor = Color.FromArgb(189, 195, 199);
+            lblAvgCompletionTime.Location = new Point(20, 150);
+            lblAvgCompletionTime.Name = "lblAvgCompletionTime";
+            lblAvgCompletionTime.Size = new Size(155, 19);
+            lblAvgCompletionTime.TabIndex = 4;
+            lblAvgCompletionTime.Text = "Avg Completion: 0 days";
             // 
             // lblOverdueTasks
             // 
-            this.lblOverdueTasks.AutoSize = true;
-            this.lblOverdueTasks.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lblOverdueTasks.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
-            this.lblOverdueTasks.Location = new System.Drawing.Point(20, 120);
-            this.lblOverdueTasks.Name = "lblOverdueTasks";
-            this.lblOverdueTasks.Size = new System.Drawing.Size(81, 19);
-            this.lblOverdueTasks.TabIndex = 3;
-            this.lblOverdueTasks.Text = "Overdue: 0";
+            lblOverdueTasks.AutoSize = true;
+            lblOverdueTasks.Font = new Font("Segoe UI", 10F);
+            lblOverdueTasks.ForeColor = Color.FromArgb(231, 76, 60);
+            lblOverdueTasks.Location = new Point(20, 120);
+            lblOverdueTasks.Name = "lblOverdueTasks";
+            lblOverdueTasks.Size = new Size(77, 19);
+            lblOverdueTasks.TabIndex = 3;
+            lblOverdueTasks.Text = "Overdue: 0";
             // 
             // lblCompletedTasks
             // 
-            this.lblCompletedTasks.AutoSize = true;
-            this.lblCompletedTasks.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lblCompletedTasks.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
-            this.lblCompletedTasks.Location = new System.Drawing.Point(20, 90);
-            this.lblCompletedTasks.Name = "lblCompletedTasks";
-            this.lblCompletedTasks.Size = new System.Drawing.Size(91, 19);
-            this.lblCompletedTasks.TabIndex = 2;
-            this.lblCompletedTasks.Text = "Completed: 0";
+            lblCompletedTasks.AutoSize = true;
+            lblCompletedTasks.Font = new Font("Segoe UI", 10F);
+            lblCompletedTasks.ForeColor = Color.FromArgb(39, 174, 96);
+            lblCompletedTasks.Location = new Point(20, 90);
+            lblCompletedTasks.Name = "lblCompletedTasks";
+            lblCompletedTasks.Size = new Size(91, 19);
+            lblCompletedTasks.TabIndex = 2;
+            lblCompletedTasks.Text = "Completed: 0";
             // 
             // lblPendingTasks
             // 
-            this.lblPendingTasks.AutoSize = true;
-            this.lblPendingTasks.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lblPendingTasks.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(126)))), ((int)(((byte)(34)))));
-            this.lblPendingTasks.Location = new System.Drawing.Point(20, 60);
-            this.lblPendingTasks.Name = "lblPendingTasks";
-            this.lblPendingTasks.Size = new System.Drawing.Size(75, 19);
-            this.lblPendingTasks.TabIndex = 1;
-            this.lblPendingTasks.Text = "Pending: 0";
+            lblPendingTasks.AutoSize = true;
+            lblPendingTasks.Font = new Font("Segoe UI", 10F);
+            lblPendingTasks.ForeColor = Color.FromArgb(230, 126, 34);
+            lblPendingTasks.Location = new Point(20, 60);
+            lblPendingTasks.Name = "lblPendingTasks";
+            lblPendingTasks.Size = new Size(73, 19);
+            lblPendingTasks.TabIndex = 1;
+            lblPendingTasks.Text = "Pending: 0";
             // 
             // lblTotalTasks
             // 
-            this.lblTotalTasks.AutoSize = true;
-            this.lblTotalTasks.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.lblTotalTasks.ForeColor = System.Drawing.Color.White;
-            this.lblTotalTasks.Location = new System.Drawing.Point(20, 30);
-            this.lblTotalTasks.Name = "lblTotalTasks";
-            this.lblTotalTasks.Size = new System.Drawing.Size(108, 21);
-            this.lblTotalTasks.TabIndex = 0;
-            this.lblTotalTasks.Text = "Total Tasks: 0";
+            lblTotalTasks.AutoSize = true;
+            lblTotalTasks.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblTotalTasks.ForeColor = Color.White;
+            lblTotalTasks.Location = new Point(20, 30);
+            lblTotalTasks.Name = "lblTotalTasks";
+            lblTotalTasks.Size = new Size(109, 21);
+            lblTotalTasks.TabIndex = 0;
+            lblTotalTasks.Text = "Total Tasks: 0";
             // 
             // panelActions
             // 
-            this.panelActions.Controls.Add(this.groupBoxActions);
-            this.panelActions.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelActions.Location = new System.Drawing.Point(20, 20);
-            this.panelActions.Name = "panelActions";
-            this.panelActions.Size = new System.Drawing.Size(260, 200);
-            this.panelActions.TabIndex = 0;
+            panelActions.Controls.Add(groupBoxActions);
+            panelActions.Dock = DockStyle.Top;
+            panelActions.Location = new Point(20, 20);
+            panelActions.Name = "panelActions";
+            panelActions.Size = new Size(260, 200);
+            panelActions.TabIndex = 0;
             // 
             // groupBoxActions
             // 
-            this.groupBoxActions.Controls.Add(this.btnGenerateReport);
-            this.groupBoxActions.Controls.Add(this.btnDeleteTask);
-            this.groupBoxActions.Controls.Add(this.btnEditTask);
-            this.groupBoxActions.Controls.Add(this.btnAddTask);
-            this.groupBoxActions.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBoxActions.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.groupBoxActions.ForeColor = System.Drawing.Color.White;
-            this.groupBoxActions.Location = new System.Drawing.Point(0, 0);
-            this.groupBoxActions.Name = "groupBoxActions";
-            this.groupBoxActions.Size = new System.Drawing.Size(260, 200);
-            this.groupBoxActions.TabIndex = 0;
-            this.groupBoxActions.TabStop = false;
-            this.groupBoxActions.Text = "Actions";
+            groupBoxActions.Controls.Add(btnGenerateReport);
+            groupBoxActions.Controls.Add(btnDeleteTask);
+            groupBoxActions.Controls.Add(btnEditTask);
+            groupBoxActions.Controls.Add(btnAddTask);
+            groupBoxActions.Dock = DockStyle.Fill;
+            groupBoxActions.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            groupBoxActions.ForeColor = Color.White;
+            groupBoxActions.Location = new Point(0, 0);
+            groupBoxActions.Name = "groupBoxActions";
+            groupBoxActions.Size = new Size(260, 200);
+            groupBoxActions.TabIndex = 0;
+            groupBoxActions.TabStop = false;
+            groupBoxActions.Text = "Actions";
             // 
             // btnGenerateReport
             // 
-            this.btnGenerateReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(89)))), ((int)(((byte)(182)))));
-            this.btnGenerateReport.FlatAppearance.BorderSize = 0;
-            this.btnGenerateReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGenerateReport.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnGenerateReport.ForeColor = System.Drawing.Color.White;
-            this.btnGenerateReport.Location = new System.Drawing.Point(20, 150);
-            this.btnGenerateReport.Name = "btnGenerateReport";
-            this.btnGenerateReport.Size = new System.Drawing.Size(220, 35);
-            this.btnGenerateReport.TabIndex = 3;
-            this.btnGenerateReport.Text = "📊 Generate Report";
-            this.btnGenerateReport.UseVisualStyleBackColor = false;
-            this.btnGenerateReport.Click += new System.EventHandler(this.btnGenerateReport_Click);
+            btnGenerateReport.BackColor = Color.FromArgb(155, 89, 182);
+            btnGenerateReport.FlatAppearance.BorderSize = 0;
+            btnGenerateReport.FlatStyle = FlatStyle.Flat;
+            btnGenerateReport.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnGenerateReport.ForeColor = Color.White;
+            btnGenerateReport.Location = new Point(20, 150);
+            btnGenerateReport.Name = "btnGenerateReport";
+            btnGenerateReport.Size = new Size(220, 35);
+            btnGenerateReport.TabIndex = 3;
+            btnGenerateReport.Text = "📊 Generate Report";
+            btnGenerateReport.UseVisualStyleBackColor = false;
+            btnGenerateReport.Click += btnGenerateReport_Click;
             // 
             // btnDeleteTask
             // 
-            this.btnDeleteTask.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
-            this.btnDeleteTask.Enabled = false;
-            this.btnDeleteTask.FlatAppearance.BorderSize = 0;
-            this.btnDeleteTask.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteTask.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnDeleteTask.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteTask.Location = new System.Drawing.Point(20, 110);
-            this.btnDeleteTask.Name = "btnDeleteTask";
-            this.btnDeleteTask.Size = new System.Drawing.Size(220, 35);
-            this.btnDeleteTask.TabIndex = 2;
-            this.btnDeleteTask.Text = "🗑️ Delete Task";
-            this.btnDeleteTask.UseVisualStyleBackColor = false;
-            this.btnDeleteTask.Click += new System.EventHandler(this.btnDeleteTask_Click);
+            btnDeleteTask.BackColor = Color.FromArgb(231, 76, 60);
+            btnDeleteTask.Enabled = false;
+            btnDeleteTask.FlatAppearance.BorderSize = 0;
+            btnDeleteTask.FlatStyle = FlatStyle.Flat;
+            btnDeleteTask.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnDeleteTask.ForeColor = Color.White;
+            btnDeleteTask.Location = new Point(20, 110);
+            btnDeleteTask.Name = "btnDeleteTask";
+            btnDeleteTask.Size = new Size(220, 35);
+            btnDeleteTask.TabIndex = 2;
+            btnDeleteTask.Text = "🗑️ Delete Task";
+            btnDeleteTask.UseVisualStyleBackColor = false;
+            btnDeleteTask.Click += btnDeleteTask_Click;
             // 
             // btnEditTask
             // 
-            this.btnEditTask.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(126)))), ((int)(((byte)(34)))));
-            this.btnEditTask.Enabled = false;
-            this.btnEditTask.FlatAppearance.BorderSize = 0;
-            this.btnEditTask.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditTask.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnEditTask.ForeColor = System.Drawing.Color.White;
-            this.btnEditTask.Location = new System.Drawing.Point(20, 70);
-            this.btnEditTask.Name = "btnEditTask";
-            this.btnEditTask.Size = new System.Drawing.Size(220, 35);
-            this.btnEditTask.TabIndex = 1;
-            this.btnEditTask.Text = "✏️ Edit Task";
-            this.btnEditTask.UseVisualStyleBackColor = false;
-            this.btnEditTask.Click += new System.EventHandler(this.btnEditTask_Click);
+            btnEditTask.BackColor = Color.FromArgb(230, 126, 34);
+            btnEditTask.Enabled = false;
+            btnEditTask.FlatAppearance.BorderSize = 0;
+            btnEditTask.FlatStyle = FlatStyle.Flat;
+            btnEditTask.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnEditTask.ForeColor = Color.White;
+            btnEditTask.Location = new Point(20, 70);
+            btnEditTask.Name = "btnEditTask";
+            btnEditTask.Size = new Size(220, 35);
+            btnEditTask.TabIndex = 1;
+            btnEditTask.Text = "✏️ Edit Task";
+            btnEditTask.UseVisualStyleBackColor = false;
+            btnEditTask.Click += btnEditTask_Click;
             // 
             // btnAddTask
             // 
-            this.btnAddTask.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
-            this.btnAddTask.FlatAppearance.BorderSize = 0;
-            this.btnAddTask.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddTask.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnAddTask.ForeColor = System.Drawing.Color.White;
-            this.btnAddTask.Location = new System.Drawing.Point(20, 30);
-            this.btnAddTask.Name = "btnAddTask";
-            this.btnAddTask.Size = new System.Drawing.Size(220, 35);
-            this.btnAddTask.TabIndex = 0;
-            this.btnAddTask.Text = "➕ Add New Task";
-            this.btnAddTask.UseVisualStyleBackColor = false;
-            this.btnAddTask.Click += new System.EventHandler(this.btnAddTask_Click);
+            btnAddTask.BackColor = Color.FromArgb(39, 174, 96);
+            btnAddTask.FlatAppearance.BorderSize = 0;
+            btnAddTask.FlatStyle = FlatStyle.Flat;
+            btnAddTask.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnAddTask.ForeColor = Color.White;
+            btnAddTask.Location = new Point(20, 30);
+            btnAddTask.Name = "btnAddTask";
+            btnAddTask.Size = new Size(220, 35);
+            btnAddTask.TabIndex = 0;
+            btnAddTask.Text = "➕ Add New Task";
+            btnAddTask.UseVisualStyleBackColor = false;
+            btnAddTask.Click += btnAddTask_Click;
             // 
             // panelHeader
             // 
-            this.panelHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.panelHeader.Controls.Add(this.btnLogout);
-            this.panelHeader.Controls.Add(this.lblUserWelcome);
-            this.panelHeader.Controls.Add(this.lblDashboardTitle);
-            this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelHeader.Location = new System.Drawing.Point(0, 0);
-            this.panelHeader.Name = "panelHeader";
-            this.panelHeader.Size = new System.Drawing.Size(1400, 80);
-            this.panelHeader.TabIndex = 0;
+            panelHeader.BackColor = Color.FromArgb(52, 152, 219);
+            panelHeader.Controls.Add(btnLogout);
+            panelHeader.Controls.Add(lblUserWelcome);
+            panelHeader.Controls.Add(lblDashboardTitle);
+            panelHeader.Dock = DockStyle.Top;
+            panelHeader.Location = new Point(0, 0);
+            panelHeader.Name = "panelHeader";
+            panelHeader.Size = new Size(1400, 80);
+            panelHeader.TabIndex = 0;
             // 
             // btnLogout
             // 
-            this.btnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
-            this.btnLogout.FlatAppearance.BorderSize = 0;
-            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnLogout.ForeColor = System.Drawing.Color.White;
-            this.btnLogout.Location = new System.Drawing.Point(1280, 25);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(100, 30);
-            this.btnLogout.TabIndex = 2;
-            this.btnLogout.Text = "Logout";
-            this.btnLogout.UseVisualStyleBackColor = false;
-            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            btnLogout.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnLogout.BackColor = Color.FromArgb(231, 76, 60);
+            btnLogout.FlatAppearance.BorderSize = 0;
+            btnLogout.FlatStyle = FlatStyle.Flat;
+            btnLogout.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnLogout.ForeColor = Color.White;
+            btnLogout.Location = new Point(1280, 25);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(100, 30);
+            btnLogout.TabIndex = 2;
+            btnLogout.Text = "Logout";
+            btnLogout.UseVisualStyleBackColor = false;
+            btnLogout.Click += btnLogout_Click;
             // 
             // lblUserWelcome
             // 
-            this.lblUserWelcome.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblUserWelcome.AutoSize = true;
-            this.lblUserWelcome.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.lblUserWelcome.ForeColor = System.Drawing.Color.White;
-            this.lblUserWelcome.Location = new System.Drawing.Point(1100, 30);
-            this.lblUserWelcome.Name = "lblUserWelcome";
-            this.lblUserWelcome.Size = new System.Drawing.Size(104, 20);
-            this.lblUserWelcome.TabIndex = 1;
-            this.lblUserWelcome.Text = "Welcome, User!";
+            lblUserWelcome.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lblUserWelcome.AutoSize = true;
+            lblUserWelcome.Font = new Font("Segoe UI", 11F);
+            lblUserWelcome.ForeColor = Color.White;
+            lblUserWelcome.Location = new Point(1100, 30);
+            lblUserWelcome.Name = "lblUserWelcome";
+            lblUserWelcome.Size = new Size(111, 20);
+            lblUserWelcome.TabIndex = 1;
+            lblUserWelcome.Text = "Welcome, User!";
             // 
             // lblDashboardTitle
             // 
-            this.lblDashboardTitle.AutoSize = true;
-            this.lblDashboardTitle.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
-            this.lblDashboardTitle.ForeColor = System.Drawing.Color.White;
-            this.lblDashboardTitle.Location = new System.Drawing.Point(20, 25);
-            this.lblDashboardTitle.Name = "lblDashboardTitle";
-            this.lblDashboardTitle.Size = new System.Drawing.Size(234, 32);
-            this.lblDashboardTitle.TabIndex = 0;
-            this.lblDashboardTitle.Text = "Task Management";
+            lblDashboardTitle.AutoSize = true;
+            lblDashboardTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
+            lblDashboardTitle.ForeColor = Color.White;
+            lblDashboardTitle.Location = new Point(20, 25);
+            lblDashboardTitle.Name = "lblDashboardTitle";
+            lblDashboardTitle.Size = new Size(221, 32);
+            lblDashboardTitle.TabIndex = 0;
+            lblDashboardTitle.Text = "Task Management";
             // 
             // timerRefresh
             // 
-            this.timerRefresh.Enabled = true;
-            this.timerRefresh.Interval = 30000;
-            this.timerRefresh.Tick += new System.EventHandler(this.timerRefresh_Tick);
+            timerRefresh.Enabled = true;
+            timerRefresh.Interval = 30000;
+            timerRefresh.Tick += timerRefresh_Tick;
             // 
             // DashboardForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1400, 800);
-            this.Controls.Add(this.panelMain);
-            this.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.MinimumSize = new System.Drawing.Size(1200, 600);
-            this.Name = "DashboardForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Task Management System - Dashboard";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.DashboardForm_Load);
-            this.panelMain.ResumeLayout(false);
-            this.panelContent.ResumeLayout(false);
-            this.panelTasks.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTasks)).EndInit();
-            this.panelPagination.ResumeLayout(false);
-            this.panelPagination.PerformLayout();
-            this.panelFilters.ResumeLayout(false);
-            this.groupBoxFilters.ResumeLayout(false);
-            this.groupBoxFilters.PerformLayout();
-            this.panelSidebar.ResumeLayout(false);
-            this.panelStatistics.ResumeLayout(false);
-            this.groupBoxStats.ResumeLayout(false);
-            this.groupBoxStats.PerformLayout();
-            this.panelActions.ResumeLayout(false);
-            this.groupBoxActions.ResumeLayout(false);
-            this.panelHeader.ResumeLayout(false);
-            this.panelHeader.PerformLayout();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            ClientSize = new Size(1400, 800);
+            Controls.Add(panelMain);
+            Font = new Font("Segoe UI", 9F);
+            MinimumSize = new Size(1200, 600);
+            Name = "DashboardForm";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Task Management System - Dashboard";
+            WindowState = FormWindowState.Maximized;
+            Load += DashboardForm_Load;
+            panelMain.ResumeLayout(false);
+            panelContent.ResumeLayout(false);
+            panelTasks.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridViewTasks).EndInit();
+            panelPagination.ResumeLayout(false);
+            panelPagination.PerformLayout();
+            panelFilters.ResumeLayout(false);
+            groupBoxFilters.ResumeLayout(false);
+            groupBoxFilters.PerformLayout();
+            panelSidebar.ResumeLayout(false);
+            panelStatistics.ResumeLayout(false);
+            groupBoxStats.ResumeLayout(false);
+            groupBoxStats.PerformLayout();
+            panelActions.ResumeLayout(false);
+            groupBoxActions.ResumeLayout(false);
+            panelHeader.ResumeLayout(false);
+            panelHeader.PerformLayout();
+            ResumeLayout(false);
         }
 
         #endregion

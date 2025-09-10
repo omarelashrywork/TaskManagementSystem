@@ -112,14 +112,16 @@
             // 
             // lblErrorMessage
             // 
-            this.lblErrorMessage.AutoSize = true;
+            this.lblErrorMessage.AutoSize = false;
             this.lblErrorMessage.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblErrorMessage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
             this.lblErrorMessage.Location = new System.Drawing.Point(50, 290);
             this.lblErrorMessage.Name = "lblErrorMessage";
-            this.lblErrorMessage.Size = new System.Drawing.Size(0, 15);
+            this.lblErrorMessage.Size = new System.Drawing.Size(300, 40);
             this.lblErrorMessage.TabIndex = 6;
             this.lblErrorMessage.Visible = false;
+            this.lblErrorMessage.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.lblErrorMessage.UseMnemonic = false;
             // 
             // txtPassword
             // 

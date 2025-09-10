@@ -207,10 +207,25 @@ namespace TaskManagementSystem.Forms
             var registerForm = new RegisterForm();
             registerForm.ShowDialog();
             
-            // If registration was successful, close login form
+            // If registration was successful, stay on login form so user can log in
             if (registerForm.DialogResult == DialogResult.OK)
             {
-                this.Close();
+                // Clear any previous error messages
+                lblErrorMessage.Visible = false;
+                
+                // Clear the password field for security
+                txtPassword.Text = "";
+                
+                // Optionally pre-fill the email if the user registered with an email
+                if (registerForm.RegisteredUser != null)
+                {
+                    txtEmail.Text = registerForm.RegisteredUser.Email;
+                    txtPassword.Focus(); // Focus on password field
+                }
+                
+                // Show a brief message encouraging the user to log in
+                MessageBox.Show("Registration completed! Please log in with your new credentials.", 
+                    "Welcome", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

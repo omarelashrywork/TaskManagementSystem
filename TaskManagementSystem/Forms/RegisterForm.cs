@@ -172,7 +172,7 @@ namespace TaskManagementSystem.Forms
                 RegisteredUser = newUser;
 
                 // Show success message
-                MessageBox.Show("Account created successfully! You can now log in with your credentials.",
+                MessageBox.Show("Account created successfully!",
                     "Registration Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Set dialog result and close
