@@ -130,7 +130,7 @@ namespace TaskManagementSystem.Forms
                     LoggedInUser = user;
                     
                     // Open dashboard and close login form
-                    var dashboardForm = new DashboardForm();
+                    var dashboardForm = new DashboardForm(user);
                     dashboardForm.Show();
                     this.Hide();
                 }

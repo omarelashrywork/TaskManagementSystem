@@ -11,12 +11,22 @@ namespace TaskManagementSystem.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            // SQL Server Auth
-            optionsBuilder.UseSqlServer(
-                "Server=.;Database=TaskManagerDB;User Id=sa;Password=omar12345;TrustServerCertificate=True;");
+            // Use SQLite for reliable, file-based database
+            optionsBuilder.UseSqlite("Data Source=TaskManager.db");
+        }
 
-            // OR Windows Auth
-            // optionsBuilder.UseSqlServer("Server=.;Database=TaskManagerDB;Trusted_Connection=True;TrustServerCertificate=True;");
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            // Seed Categories
+            modelBuilder.Entity<Category>().HasData(
+                new Category { Id = 1, Name = "Work" },
+                new Category { Id = 2, Name = "Personal" },
+                new Category { Id = 3, Name = "Shopping" },
+                new Category { Id = 4, Name = "Health" },
+                new Category { Id = 5, Name = "Education" }
+            );
         }
     }
 }
