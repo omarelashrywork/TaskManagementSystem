@@ -558,14 +558,10 @@ namespace TaskManagementSystem.Forms
 
             if (result == DialogResult.Yes)
             {
-                // Hide this form first
-                this.Hide();
+                // Set dialog result to indicate logout
+                this.DialogResult = DialogResult.OK;
                 
-                // Create and show login form
-                var loginForm = new LoginForm();
-                loginForm.Show();
-                
-                // Close this form after login form is shown
+                // Close this form - this will return control to the login form
                 this.Close();
             }
         }

@@ -129,10 +129,18 @@ namespace TaskManagementSystem.Forms
                 {
                     LoggedInUser = user;
                     
-                    // Open dashboard and close login form
+                    // Open dashboard as modal dialog
                     var dashboardForm = new DashboardForm(user);
-                    dashboardForm.Show();
-                    this.Hide();
+                    this.Hide(); // Hide login form while dashboard is open
+                    
+                    var result = dashboardForm.ShowDialog();
+                    
+                    // When dashboard closes (logout), show login form again
+                    this.Show();
+                    
+                    // Clear password for security
+                    txtPassword.Text = "";
+                    lblErrorMessage.Visible = false;
                 }
                 else
                 {
