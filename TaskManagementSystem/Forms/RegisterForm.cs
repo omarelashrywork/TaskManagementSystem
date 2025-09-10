@@ -150,6 +150,8 @@ namespace TaskManagementSystem.Forms
                 if (existingUser != null)
                 {
                     ShowErrorMessage("An account with this email already exists. Please use a different email or try logging in.");
+                    btnRegister.Enabled = true;
+                    btnRegister.Text = "CREATE ACCOUNT";
                     return;
                 }
 
@@ -182,10 +184,6 @@ namespace TaskManagementSystem.Forms
             catch (Exception ex)
             {
                 ShowErrorMessage($"Registration failed: {ex.Message}");
-            }
-            finally
-            {
-                // Re-enable register button
                 btnRegister.Enabled = true;
                 btnRegister.Text = "CREATE ACCOUNT";
             }

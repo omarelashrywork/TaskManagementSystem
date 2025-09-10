@@ -96,7 +96,7 @@
             this.btnRegister.TabIndex = 5;
             this.btnRegister.Text = "CREATE ACCOUNT";
             this.btnRegister.UseVisualStyleBackColor = false;
-            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
+                        this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             this.btnRegister.MouseEnter += new System.EventHandler(this.btnRegister_MouseEnter);
             this.btnRegister.MouseLeave += new System.EventHandler(this.btnRegister_MouseLeave);
             // 

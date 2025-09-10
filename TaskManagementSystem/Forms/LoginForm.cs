@@ -19,6 +19,7 @@ namespace TaskManagementSystem.Forms
     {
         private AppDbContext _context;
         public User? LoggedInUser { get; private set; }
+        private bool _isLoggingIn = false; // Flag to prevent multiple login attempts
 
         public LoginForm()
         {
@@ -60,7 +61,7 @@ namespace TaskManagementSystem.Forms
 
         private void LoginForm_KeyDown(object? sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter && !_isLoggingIn)
             {
                 btnLogin_Click(this, EventArgs.Empty);
             }
@@ -77,7 +78,7 @@ namespace TaskManagementSystem.Forms
 
         private void TxtPassword_KeyPress(object? sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter)
+            if (e.KeyChar == (char)Keys.Enter && !_isLoggingIn)
             {
                 btnLogin_Click(this, EventArgs.Empty);
                 e.Handled = true;
@@ -103,14 +104,21 @@ namespace TaskManagementSystem.Forms
 
         private async void btnLogin_Click(object sender, EventArgs e)
         {
+            // Prevent multiple simultaneous login attempts
+            if (_isLoggingIn)
+                return;
+
             try
             {
+                _isLoggingIn = true;
+                
                 // Clear previous error message
                 lblErrorMessage.Visible = false;
                 
                 // Validate input
                 if (!ValidateInput())
                 {
+                    _isLoggingIn = false;
                     return;
                 }
 
@@ -153,9 +161,10 @@ namespace TaskManagementSystem.Forms
             }
             finally
             {
-                // Re-enable login button
+                // Re-enable login button and reset flag
                 btnLogin.Enabled = true;
                 btnLogin.Text = "LOGIN";
+                _isLoggingIn = false;
             }
         }
 
