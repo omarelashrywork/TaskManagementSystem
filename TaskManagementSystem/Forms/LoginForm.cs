@@ -127,11 +127,13 @@ namespace TaskManagementSystem.Forms
                 btnLogin.Text = "Logging in...";
 
                 // Hash the password for comparison
+                // Normalize email for consistent comparison
+                string normalizedEmail = txtEmail.Text.Trim().ToLower();
                 string hashedPassword = HashPassword(txtPassword.Text);
 
                 // Check credentials in database
                 var user = await _context.Users
-                    .FirstOrDefaultAsync(u => u.Email == txtEmail.Text && u.PasswordHash == hashedPassword);
+                    .FirstOrDefaultAsync(u => u.Email == normalizedEmail && u.PasswordHash == hashedPassword);
 
                 if (user != null)
                 {

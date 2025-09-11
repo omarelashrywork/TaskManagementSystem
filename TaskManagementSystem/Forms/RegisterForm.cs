@@ -143,26 +143,22 @@ namespace TaskManagementSystem.Forms
                 btnRegister.Enabled = false;
                 btnRegister.Text = "Creating Account...";
 
-                // Check if email already exists
-                var existingUser = await _context.Users
-                    .FirstOrDefaultAsync(u => u.Email == txtEmail.Text);
-
-                if (existingUser != null)
-                {
-                    ShowErrorMessage("An account with this email already exists. Please use a different email or try logging in.");
-                    btnRegister.Enabled = true;
-                    btnRegister.Text = "CREATE ACCOUNT";
-                    return;
-                }
+                // Get actual field values (not placeholder text)
+                string name = GetActualFieldValue(txtName, "Enter your full name");
+                string email = GetActualFieldValue(txtEmail, "Enter your email");
+                string password = GetActualFieldValue(txtPassword, "Enter your password");
+                
+                // Normalize email for consistent storage
+                string normalizedEmail = email.Trim().ToLower();
 
                 // Hash the password
-                string hashedPassword = HashPassword(txtPassword.Text);
+                string hashedPassword = HashPassword(password);
 
-                // Create new user
+                // Create new user - let database handle duplicate email constraints
                 var newUser = new User
                 {
-                    Name = txtName.Text.Trim(),
-                    Email = txtEmail.Text.Trim().ToLower(),
+                    Name = name,
+                    Email = normalizedEmail,
                     PasswordHash = hashedPassword,
                     Tasks = new List<TaskItem>()
                 };
@@ -183,7 +179,18 @@ namespace TaskManagementSystem.Forms
             }
             catch (Exception ex)
             {
-                ShowErrorMessage($"Registration failed: {ex.Message}");
+                // Handle database constraint errors (for actual duplicate emails)
+                if (ex.Message.Contains("UNIQUE constraint failed") || 
+                    ex.Message.Contains("duplicate") || 
+                    ex.InnerException?.Message.Contains("UNIQUE") == true)
+                {
+                    ShowErrorMessage("An account with this email already exists. Please use a different email.");
+                }
+                else
+                {
+                    ShowErrorMessage($"Registration failed: {ex.Message}");
+                }
+                
                 btnRegister.Enabled = true;
                 btnRegister.Text = "CREATE ACCOUNT";
             }
@@ -207,8 +214,10 @@ namespace TaskManagementSystem.Forms
                 return false;
             }
 
-            // Check if email is empty
-            if (string.IsNullOrWhiteSpace(txtEmail.Text) || txtEmail.Text == "Enter your email")
+            // Check if email is empty or still placeholder
+            if (string.IsNullOrWhiteSpace(txtEmail.Text) || 
+                txtEmail.Text == "Enter your email" || 
+                txtEmail.ForeColor == Color.Gray)
             {
                 ShowErrorMessage("Please enter your email address.");
                 txtEmail.Focus();
@@ -416,6 +425,16 @@ namespace TaskManagementSystem.Forms
         {
             _context?.Dispose();
             base.OnFormClosed(e);
+        }
+
+        private string GetActualFieldValue(TextBox textBox, string placeholderText)
+        {
+            // Check if the textbox contains placeholder text (gray color)
+            if (textBox.ForeColor == Color.Gray || string.IsNullOrWhiteSpace(textBox.Text) || textBox.Text == placeholderText)
+            {
+                return string.Empty;
+            }
+            return textBox.Text.Trim();
         }
     }
 }

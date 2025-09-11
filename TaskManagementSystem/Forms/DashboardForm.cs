@@ -586,28 +586,209 @@ namespace TaskManagementSystem.Forms
     public partial class ReportForm : Form
     {
         private User _user;
+        private AppDbContext _context;
 
         public ReportForm(User user)
         {
             _user = user;
-            InitializeSimpleReportForm();
+            _context = new AppDbContext();
+            InitializeReportForm();
+            LoadReportData();
         }
 
-        private void InitializeSimpleReportForm()
+        private void InitializeReportForm()
         {
             this.Text = "Task Report";
-            this.Size = new Size(600, 400);
+            this.Size = new Size(800, 600);
             this.StartPosition = FormStartPosition.CenterParent;
+            this.BackColor = Color.White;
             
-            // Add report content - you can expand this
-            var lblReport = new Label 
-            { 
-                Text = "Task Report Generated",
+            // Main panel
+            var mainPanel = new Panel
+            {
                 Dock = DockStyle.Fill,
-                TextAlign = ContentAlignment.MiddleCenter
+                Padding = new Padding(20)
             };
             
-            this.Controls.Add(lblReport);
+            // Title
+            var lblTitle = new Label
+            {
+                Text = $"Task Report for {_user.Name}",
+                Font = new Font("Segoe UI", 16, FontStyle.Bold),
+                ForeColor = Color.FromArgb(52, 152, 219),
+                AutoSize = true,
+                Location = new Point(0, 0)
+            };
+            
+            // Statistics panel
+            var statsPanel = new Panel
+            {
+                Location = new Point(0, 40),
+                Size = new Size(760, 100),
+                BorderStyle = BorderStyle.FixedSingle,
+                BackColor = Color.FromArgb(248, 249, 250)
+            };
+            
+            // Task list
+            var lblTaskListTitle = new Label
+            {
+                Text = "Your Tasks:",
+                Font = new Font("Segoe UI", 12, FontStyle.Bold),
+                Location = new Point(0, 160),
+                AutoSize = true
+            };
+            
+            var listView = new ListView
+            {
+                Location = new Point(0, 190),
+                Size = new Size(760, 300),
+                View = View.Details,
+                FullRowSelect = true,
+                GridLines = true,
+                BorderStyle = BorderStyle.FixedSingle
+            };
+            
+            // Configure ListView columns
+            listView.Columns.Add("Title", 200);
+            listView.Columns.Add("Description", 250);
+            listView.Columns.Add("Category", 100);
+            listView.Columns.Add("Priority", 80);
+            listView.Columns.Add("Status", 80);
+            listView.Columns.Add("Due Date", 100);
+            
+            // Close button
+            var btnClose = new Button
+            {
+                Text = "Close",
+                Size = new Size(100, 35),
+                Location = new Point(660, 510),
+                BackColor = Color.FromArgb(52, 152, 219),
+                ForeColor = Color.White,
+                FlatStyle = FlatStyle.Flat,
+                Font = new Font("Segoe UI", 10, FontStyle.Bold)
+            };
+            btnClose.FlatAppearance.BorderSize = 0;
+            btnClose.Click += (s, e) => this.Close();
+            
+            // Add controls
+            mainPanel.Controls.AddRange(new Control[] 
+            { 
+                lblTitle, statsPanel, lblTaskListTitle, listView, btnClose 
+            });
+            
+            this.Controls.Add(mainPanel);
+            
+            // Store references for data loading
+            this.Tag = new { StatsPanel = statsPanel, ListView = listView };
+        }
+
+        private async void LoadReportData()
+        {
+            try
+            {
+                // Get user's tasks
+                var userTasks = await _context.Tasks
+                    .Include(t => t.Category)
+                    .Where(t => t.UserId == _user.Id)
+                    .ToListAsync();
+
+                // Calculate statistics
+                var totalTasks = userTasks.Count;
+                var completedTasks = userTasks.Count(t => t.Status == TaskStatus.Completed);
+                var pendingTasks = totalTasks - completedTasks;
+                var overdueTasks = userTasks.Count(t => t.Status != TaskStatus.Completed && t.DueDate < DateTime.Now);
+                var todayTasks = userTasks.Count(t => t.DueDate.Date == DateTime.Today);
+
+                // Update statistics panel
+                var refs = (dynamic)this.Tag!;
+                var statsPanel = (Panel)refs.StatsPanel;
+                
+                statsPanel.Controls.Clear();
+                
+                var stats = new[]
+                {
+                    new { Label = "Total Tasks", Value = totalTasks.ToString(), Color = Color.FromArgb(52, 152, 219) },
+                    new { Label = "Completed", Value = completedTasks.ToString(), Color = Color.FromArgb(46, 204, 113) },
+                    new { Label = "Pending", Value = pendingTasks.ToString(), Color = Color.FromArgb(241, 196, 15) },
+                    new { Label = "Overdue", Value = overdueTasks.ToString(), Color = Color.FromArgb(231, 76, 60) },
+                    new { Label = "Due Today", Value = todayTasks.ToString(), Color = Color.FromArgb(155, 89, 182) }
+                };
+
+                for (int i = 0; i < stats.Length; i++)
+                {
+                    var statPanel = new Panel
+                    {
+                        Size = new Size(140, 80),
+                        Location = new Point(i * 150 + 10, 10),
+                        BackColor = Color.White,
+                        BorderStyle = BorderStyle.FixedSingle
+                    };
+
+                    var lblValue = new Label
+                    {
+                        Text = stats[i].Value,
+                        Font = new Font("Segoe UI", 20, FontStyle.Bold),
+                        ForeColor = stats[i].Color,
+                        TextAlign = ContentAlignment.MiddleCenter,
+                        Dock = DockStyle.Top,
+                        Height = 40
+                    };
+
+                    var lblName = new Label
+                    {
+                        Text = stats[i].Label,
+                        Font = new Font("Segoe UI", 9),
+                        ForeColor = Color.FromArgb(108, 117, 125),
+                        TextAlign = ContentAlignment.MiddleCenter,
+                        Dock = DockStyle.Bottom,
+                        Height = 30
+                    };
+
+                    statPanel.Controls.AddRange(new Control[] { lblValue, lblName });
+                    statsPanel.Controls.Add(statPanel);
+                }
+
+                // Populate task list
+                var listView = (ListView)refs.ListView;
+                listView.Items.Clear();
+
+                foreach (var task in userTasks.OrderBy(t => t.DueDate))
+                {
+                    var item = new ListViewItem(task.Title);
+                    item.SubItems.Add(task.Description?.Length > 30 ? task.Description.Substring(0, 30) + "..." : task.Description ?? "");
+                    item.SubItems.Add(task.Category?.Name ?? "No Category");
+                    item.SubItems.Add(task.Priority.ToString());
+                    item.SubItems.Add(task.Status.ToString());
+                    item.SubItems.Add(task.DueDate.ToString("MMM dd, yyyy"));
+
+                    // Color coding
+                    if (task.Status == TaskStatus.Completed)
+                    {
+                        item.ForeColor = Color.FromArgb(108, 117, 125);
+                    }
+                    else if (task.Status != TaskStatus.Completed && task.DueDate < DateTime.Now)
+                    {
+                        item.ForeColor = Color.FromArgb(231, 76, 60); // Overdue - red
+                    }
+                    else if (task.DueDate.Date == DateTime.Today)
+                    {
+                        item.ForeColor = Color.FromArgb(243, 156, 18); // Due today - orange
+                    }
+
+                    listView.Items.Add(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading report data: {ex.Message}", "Error", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            _context?.Dispose();
+            base.OnFormClosed(e);
         }
     }
 }
