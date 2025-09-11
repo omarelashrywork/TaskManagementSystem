@@ -265,11 +265,12 @@
             // 
             // lblSubtitle
             // 
+            this.lblSubtitle.AutoSize = true;
             this.lblSubtitle.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.lblSubtitle.ForeColor = System.Drawing.Color.White;
             this.lblSubtitle.Location = new System.Drawing.Point(50, 280);
+            this.lblSubtitle.MaximumSize = new System.Drawing.Size(375, 0);
             this.lblSubtitle.Name = "lblSubtitle";
-            this.lblSubtitle.Size = new System.Drawing.Size(375, 80);
             this.lblSubtitle.TabIndex = 1;
             this.lblSubtitle.Text = "Create your account to start managing tasks efficiently. Join thousands of users" +
     " who trust our platform to stay organized and boost productivity.";

@@ -208,11 +208,12 @@
             // 
             // lblSubtitle
             // 
+            this.lblSubtitle.AutoSize = true;
             this.lblSubtitle.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.lblSubtitle.ForeColor = System.Drawing.Color.White;
             this.lblSubtitle.Location = new System.Drawing.Point(50, 240);
+            this.lblSubtitle.MaximumSize = new System.Drawing.Size(350, 0);
             this.lblSubtitle.Name = "lblSubtitle";
-            this.lblSubtitle.Size = new System.Drawing.Size(350, 60);
             this.lblSubtitle.TabIndex = 1;
             this.lblSubtitle.Text = "Manage your tasks efficiently with our modern task management system. Stay organ" +
     "ized and productive.";
