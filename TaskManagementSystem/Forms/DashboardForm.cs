@@ -20,6 +20,7 @@ namespace TaskManagementSystem.Forms
         private User? _currentUser;
         private List<TaskItem> _allTasks;
         private List<TaskItem> _filteredTasks;
+        private List<int> _alertedOverdueTaskIds; // Track which overdue tasks we've already alerted about
         private int _currentPage = 1;
         private int _tasksPerPage = 10;
         private string _currentSearchText = "";
@@ -34,6 +35,7 @@ namespace TaskManagementSystem.Forms
             _context = new AppDbContext();
             _allTasks = new List<TaskItem>();
             _filteredTasks = new List<TaskItem>();
+            _alertedOverdueTaskIds = new List<int>();
         }
 
         public DashboardForm(User user) : this()
@@ -317,7 +319,9 @@ namespace TaskManagementSystem.Forms
         {
             try
             {
-                if (_currentUser == null) return;
+                // Check if form is disposed or context is null
+                if (this.IsDisposed || this.Disposing || _context == null || _currentUser == null) 
+                    return;
 
                 var tasks = await _context.Tasks
                     .Where(t => t.UserId == _currentUser.Id)
@@ -363,20 +367,30 @@ namespace TaskManagementSystem.Forms
                     t.DueDate < DateTime.Now && 
                     t.Status != TaskStatus.Completed).ToList();
 
-                if (overdueTasks.Any())
+                // Filter out tasks we've already alerted about
+                var newOverdueTasks = overdueTasks.Where(t => !_alertedOverdueTaskIds.Contains(t.Id)).ToList();
+
+                if (newOverdueTasks.Any())
                 {
-                    var message = $"You have {overdueTasks.Count} overdue task(s):\n\n";
-                    message += string.Join("\n", overdueTasks.Take(5).Select(t => 
+                    var message = $"You have {newOverdueTasks.Count} overdue task(s):\n\n";
+                    message += string.Join("\n", newOverdueTasks.Take(5).Select(t => 
                         $"• {t.Title} (Due: {t.DueDate:dd/MM/yyyy})"));
                     
-                    if (overdueTasks.Count > 5)
+                    if (newOverdueTasks.Count > 5)
                     {
-                        message += $"\n... and {overdueTasks.Count - 5} more.";
+                        message += $"\n... and {newOverdueTasks.Count - 5} more.";
                     }
 
                     MessageBox.Show(message, "Overdue Tasks Alert", 
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    
+                    // Mark these tasks as alerted
+                    _alertedOverdueTaskIds.AddRange(newOverdueTasks.Select(t => t.Id));
                 }
+                
+                // Clean up: remove IDs of tasks that are no longer overdue (completed or deleted)
+                var currentOverdueIds = overdueTasks.Select(t => t.Id).ToList();
+                _alertedOverdueTaskIds = _alertedOverdueTaskIds.Where(id => currentOverdueIds.Contains(id)).ToList();
             }
             catch (Exception ex)
             {
@@ -558,6 +572,9 @@ namespace TaskManagementSystem.Forms
 
             if (result == DialogResult.Yes)
             {
+                // Stop the timer to prevent errors after logout
+                timerRefresh?.Stop();
+                
                 // Set dialog result to indicate logout
                 this.DialogResult = DialogResult.OK;
                 
@@ -568,13 +585,38 @@ namespace TaskManagementSystem.Forms
 
         private async void timerRefresh_Tick(object sender, EventArgs e)
         {
-            await UpdateStatisticsAsync();
-            await CheckOverdueTasksAsync();
+            try
+            {
+                // Check if form is disposed or disposing
+                if (this.IsDisposed || this.Disposing || _context == null || _currentUser == null)
+                {
+                    timerRefresh?.Stop();
+                    return;
+                }
+
+                await UpdateStatisticsAsync();
+                await CheckOverdueTasksAsync();
+            }
+            catch (ObjectDisposedException)
+            {
+                // Form or context was disposed, stop the timer
+                timerRefresh?.Stop();
+            }
+            catch (Exception ex)
+            {
+                // Log other errors but don't show to user during logout
+                System.Diagnostics.Debug.WriteLine($"Timer error: {ex.Message}");
+            }
         }
 
         protected override void OnFormClosed(FormClosedEventArgs e)
         {
+            // Stop timer first to prevent any race conditions
+            timerRefresh?.Stop();
+            
+            // Dispose context
             _context?.Dispose();
+            
             base.OnFormClosed(e);
         }
     }
